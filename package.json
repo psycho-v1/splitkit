@@ -1,0 +1,43 @@
+{
+  "name": "@psycho-v1/splitkit",
+  "version": "0.1.0",
+  "description": "Pin EVM block hashes across RPC families, detect history splits, scan nonces, export evidence packs.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "splitkit": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "evm",
+    "rpc",
+    "fork",
+    "nonce",
+    "evidence",
+    "json-rpc"
+  ],
+  "author": "psycho-v1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psycho-v1/splitkit.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
