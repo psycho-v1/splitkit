@@ -9,7 +9,7 @@ It does four things and nothing else:
 3. Scan `eth_getTransactionCount` across families and say whether they agree.
 4. Export a timestamped JSON evidence pack. No keys. No sends.
 
-This is the portable core behind the 1404 desk / pending / evidence tools.
+This is the portable core behind the 1404 desk / kedge / evidence tools.
 The library does not mention a token ticker in its API.
 You pass pins and endpoints in.
 
@@ -23,7 +23,18 @@ npm test
 npm run build
 ```
 
-Node 20+.
+Node 20+. Thirteen tests, including a mock JSON-RPC pair that reproduces the 1404 split at block 316002 without touching the live net.
+
+## Chain 1404 as a config, not the type system
+
+```text
+examples/chain-1404.pin.json         community hash at 316002 + deny list
+examples/chain-1404.endpoints.json   labelled community + scan hosts
+browser/splitkit.js                  IIFE used by Desk and Kedge
+```
+
+Send tools apply `deniedHostSubstrings` (bdagscan / blockdag.works).
+Compare tools (Desk) pass both families and let `detectSplit` score the pin.
 
 ## Library
 
@@ -31,20 +42,6 @@ Node 20+.
 import { assertAllowed, detectSplit, buildEvidencePack } from "@psycho-v1/splitkit";
 
 assertAllowed("https://rpc.example.org", ["blocked.example"]);
-
-const pack = await buildEvidencePack({
-  pin: {
-    chainId: 1,
-    deniedHostSubstrings: [],
-    heights: [
-      {
-        height: 0,
-        blockHash: "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3",
-      },
-    ],
-  },
-  endpoints: [{ name: "publicnode", url: "https://ethereum.publicnode.com", family: "public" }],
-});
 ```
 
 ## CLI
@@ -55,15 +52,9 @@ node dist/cli.js --pin examples/pin.example.json --endpoints examples/endpoints.
 
 Exit `1` if any pinned height disagrees across live RPCs.
 
-## What this is not
+## Consumers
 
-- Not a wallet, relayer, or custodian.
-- Not legal advice and not an accusation.
-- Not a BlockDAG product. Chain 1404 can be *one config*, not the type system.
-
-## Why this repo exists
-
-A static HTML page that hard-codes one chain teaches nobody how you think.
-A tested library with pins, deny-lists, and an evidence schema does.
+- [Chain-1404-Desk](https://github.com/psycho-v1/Chain-1404-Desk) — inspect scores 316002 with `Splitkit.detectSplit`
+- [kedge](https://github.com/psycho-v1/kedge) — `assertAllowed` refuses scan-family hosts before a write
 
 MIT.
