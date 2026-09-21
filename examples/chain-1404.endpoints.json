@@ -1,0 +1,12 @@
+{
+  "comment": "Labelled public endpoints. Compare tools may pass both families. Send tools must drop scan family via the pin deny list.",
+  "community": [
+    { "name": "east", "url": "https://rpc.east.bdag-us.org", "family": "community" },
+    { "name": "west", "url": "https://rpc.west.bdag-us.org", "family": "community" },
+    { "name": "welsh", "url": "https://rpc.welshdag.trade", "family": "community" }
+  ],
+  "scan": [
+    { "name": "bdagscan", "url": "https://rpc.bdagscan.com", "family": "scan" },
+    { "name": "works", "url": "https://rpc.blockdag.works", "family": "scan" }
+  ]
+}

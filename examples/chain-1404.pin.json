@@ -1,0 +1,20 @@
+{
+  "comment": "Community-book pin for EVM chain 1404. Scan-family hosts are listed so a compare tool can see the other history; send tools should use deniedHostSubstrings.",
+  "chainId": 1404,
+  "deniedHostSubstrings": [
+    "bdagscan.com",
+    "blockdag.works"
+  ],
+  "heights": [
+    {
+      "height": 316002,
+      "blockHash": "0xcd4d2568e9cba6725329e8cf6d96217ace7acb03d71d9b519c8b2560bb6bb781",
+      "note": "Community hash at first divergent block. GK/scan family publishes 0xe2c7a9b0ff6206e6ac93f2cceead3992e081a4be64f5a5975d6e2158cc02a824"
+    }
+  ],
+  "alsoKnown": {
+    "gk316002": "0xe2c7a9b0ff6206e6ac93f2cceead3992e081a4be64f5a5975d6e2158cc02a824",
+    "sharedThrough": 316001,
+    "splitUtc": "2026-02-17T22:03:01Z"
+  }
+}
