@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { detectSplit, hashesEqual, normalizeHash } from "../src/pin.ts";
-import type { BlockHeaderView, RpcCallResult, RpcEndpoint } from "../src/types.ts";
+import { detectSplit, hashesEqual, normalizeHash } from "../src/pin.js";
+import type { BlockHeaderView, RpcCallResult, RpcEndpoint } from "../src/types.js";
 
 const endpoint = (name: string, family: string): RpcEndpoint => ({
   name,

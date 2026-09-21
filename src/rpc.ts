@@ -1,4 +1,4 @@
-import type { BlockHeaderView, Hex, RpcCallResult, RpcEndpoint } from "./types.ts";
+import type { BlockHeaderView, Hex, RpcCallResult, RpcEndpoint } from "./types.js";
 
 interface JsonRpcOk<T> {
   jsonrpc: "2.0";

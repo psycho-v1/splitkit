@@ -1,8 +1,8 @@
-import { filterAllowed } from "./deny.ts";
-import { scanNonce } from "./nonce.ts";
-import { detectSplit, pinAt } from "./pin.ts";
-import { ethChainId, ethGetBlockByNumber } from "./rpc.ts";
-import type { ChainPin, EvidencePack, Hex, RpcEndpoint } from "./types.ts";
+import { filterAllowed } from "./deny.js";
+import { scanNonce } from "./nonce.js";
+import { detectSplit } from "./pin.js";
+import { ethChainId, ethGetBlockByNumber } from "./rpc.js";
+import type { ChainPin, EvidencePack, Hex, RpcEndpoint } from "./types.js";
 
 export async function buildEvidencePack(opts: {
   pin: ChainPin;
@@ -23,9 +23,6 @@ export async function buildEvidencePack(opts: {
   }
 
   const nonce = opts.subject ? await scanNonce(opts.subject, allowed) : undefined;
-  const extra = pinAt; // keep import used if tree-shaken oddly
-  void extra;
-
   return {
     generatedAt: new Date().toISOString(),
     subject: opts.subject,

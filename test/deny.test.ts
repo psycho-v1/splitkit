@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { assertAllowed, DeniedHostError, filterAllowed, hostOf } from "../src/deny.ts";
+import { assertAllowed, DeniedHostError, filterAllowed, hostOf } from "../src/deny.js";
 
 test("hostOf parses hostname", () => {
   assert.equal(hostOf("https://rpc.east.example.org:8545/"), "rpc.east.example.org");

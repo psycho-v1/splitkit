@@ -1,4 +1,4 @@
-import type { RpcEndpoint } from "./types.ts";
+import type { RpcEndpoint } from "./types.js";
 
 export class DeniedHostError extends Error {
   constructor(public readonly url: string, public readonly matched: string) {

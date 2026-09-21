@@ -1,4 +1,4 @@
-import type { ChainPin, FamilySplit, Hex, RpcCallResult, BlockHeaderView } from "./types.ts";
+import type { ChainPin, FamilySplit, Hex, RpcCallResult, BlockHeaderView } from "./types.js";
 
 export function normalizeHash(hash: string): Hex {
   const h = hash.toLowerCase();

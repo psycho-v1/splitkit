@@ -1,5 +1,5 @@
-import { ethGetTransactionCount } from "./rpc.ts";
-import type { Hex, NonceScan, RpcEndpoint } from "./types.ts";
+import { ethGetTransactionCount } from "./rpc.js";
+import type { Hex, NonceScan, RpcEndpoint } from "./types.js";
 
 export async function scanNonce(address: Hex, endpoints: RpcEndpoint[]): Promise<NonceScan> {
   const rows = await Promise.all(

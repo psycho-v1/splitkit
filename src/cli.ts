@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
-import { buildEvidencePack } from "./evidence.ts";
-import type { ChainPin, Hex, RpcEndpoint } from "./types.ts";
+import { buildEvidencePack } from "./evidence.js";
+import type { ChainPin, Hex, RpcEndpoint } from "./types.js";
 
 function arg(flag: string): string | undefined {
   const i = process.argv.indexOf(flag);
